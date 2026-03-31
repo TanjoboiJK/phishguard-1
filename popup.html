@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhishGuard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="shell">
+    <div class="shell-glow shell-glow-a"></div>
+    <div class="shell-glow shell-glow-b"></div>
+
+    <header class="header">
+      <div class="brand-mark" aria-hidden="true">
+        <span></span>
+      </div>
+      <div class="brand-copy">
+        <div class="eyebrow">MAIL THREAT MONITOR</div>
+        <div class="header-title">PhishGuard</div>
+        <div class="header-sub">Quiet AI screening for Gmail</div>
+      </div>
+    </header>
+
+    <main class="body">
+      <section class="status-panel inactive" id="status">
+        <div class="status-row">
+          <div class="status-pulse" aria-hidden="true"></div>
+          <span class="status-label">System Status</span>
+        </div>
+        <p class="status-text" id="status-text">Offline. Add your Groq API key to arm protection.</p>
+      </section>
+
+      <section class="panel">
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-title">Protection Switch</div>
+            <p class="toggle-copy" id="toggleCopy">Turn on scanning when you want PhishGuard watching Gmail.</p>
+          </div>
+          <label class="toggle" for="enabledToggle" aria-label="Enable or disable PhishGuard scanning">
+            <input type="checkbox" id="enabledToggle" />
+            <span class="toggle-track">
+              <span class="toggle-thumb"></span>
+            </span>
+          </label>
+        </div>
+
+        <label for="groqKey">Groq API Key</label>
+        <input type="password" id="groqKey" placeholder="gsk_live_..." autocomplete="off" />
+        <p class="hint">Stored locally in your browser. PhishGuard sends only sender details, subject, and a shortened email excerpt for analysis.</p>
+        <div class="action-row">
+          <button class="save" id="saveBtn">Arm Scanner</button>
+          <button class="clear" id="clearBtn" type="button">Clear Key</button>
+        </div>
+        <div class="saved-msg" id="savedMsg" aria-live="polite"></div>
+      </section>
+
+      <section class="mini-grid" aria-label="Highlights">
+        <div class="mini-card">
+          <span class="mini-kicker">AUTO</span>
+          <strong>Scans opened emails</strong>
+        </div>
+        <div class="mini-card">
+          <span class="mini-kicker">FAST</span>
+          <strong>Shows risk banner inline</strong>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Open a Gmail message and PhishGuard will analyze it automatically.</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
